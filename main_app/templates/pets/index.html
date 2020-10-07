@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="{% url 'pets_index' %}" method="post">
+    {% csrf_token %} {{pet_form.as_p}}
+    <input type="submit" value="Add pet" class="btn green">
+</form>
+{% for pet in pets %}
+    <div class="card">
+        <a href="{% url 'pets_detail' pet.id %}">
+            <div class="card-content">
+                <span class="card-title">{{pet.name}}</span>
+                <p>{{pet.color}} {{pet.species}}</p>
+            </div>  
+        </a>
+    </div>
+
+{% endfor %}
+{% endblock %}

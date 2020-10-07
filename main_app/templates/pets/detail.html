@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{pet.name}}</span>
+        <p>{{pet.color}} {{pet.species}}</p>
+    </div>
+    <div class="card-action">
+        <a href="{% url 'pets_edit' pet.id%}" class="btn blue">Edit</a>
+        <a href="{% url 'pets_delete' pet.id%}" class="btn red">Delete</a>
+    </div>
+</div>
+
+{% endblock %}
